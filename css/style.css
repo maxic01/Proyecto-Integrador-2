@@ -1,37 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
 
-@font-face { src: url(../fuentes/BodoniFLF-BoldItalic.ttf);
-    font-style: italic; 
-    font-weight: bold; 
+@font-face {
+    src: url(../fuentes/BodoniFLF-BoldItalic.ttf);
+    font-style: italic;
+    font-weight: bold;
     font-family: miFuente;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     font-size: 90%;
     margin: 0;
-    padding: 0;    
+    padding: 0;
+    counter-reset: miContador;
 }
 
-nav{
+nav {
     width: 100%;
     height: 40px;
 }
 
-nav a{
+nav a {
     text-decoration: none;
     margin: 2px;
     color: black;
 }
 
-nav img{
+nav a :hover {
+    text-decoration: underline;
+}
+
+nav img {
     width: 2%;
     max-width: 100%;
     height: auto;
     margin-right: auto;
 }
 
-#encabezado{
+#encabezado {
     text-align: center;
     width: 100%;
     height: 500px;
@@ -43,61 +49,90 @@ nav img{
     justify-content: center;
 }
 
-#encabezado div{
+#encabezado div {
     width: 50%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-#encabezado h1{
+#encabezado h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 2em;
 }
 
-#encabezado h1 span{
+#encabezado h1 span {
     font-family: miFuente;
     color: #b45008;
     font-size: 3em;
 }
 
-main{
+#chat {
+    position: fixed;
+    left: 97%;
+    top: 88%;
+    background-image: linear-gradient(rgba(226, 127, 14, 0.5), rgba(255, 255, 255, 0.5)),
+     url(../img/chat.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+main {
     width: 100%;
 }
 
-h1, h2{
+h1,
+h2 {
     margin: 0;
 }
 
-.nosotros h2{
+.nosotros h2 {
     font-family: miFuente;
     font-size: 2em;
     color: #e8bf65;
 }
 
-.division div img{
+.division div img {
     width: 80%;
     margin: auto;
     display: block;
+    border-radius: 10px/20px;
+    box-shadow: 1px 3px 10px black;
 }
 
-h4{
+.division img {
+    opacity: 0.5;
+}
+
+h4 {
     font-size: 1.4em;
     color: #e8bf65;
     border-bottom: 1px dotted #b45008;
+    text-shadow: 2px 3px 2px rgba(200, 200, 14, 0.5);
 }
 
-.nosotros p{
+h4::before{
+    counter-increment: miContador;
+    content: counter(miContador, upper-roman) "-";
+    font-variant: small-caps;
+    font-size: 20px;
+}
+
+.nosotros p {
     font-size: 1.2em;
     color: white;
 }
 
-h3{
+h3 {
     font-family: miFuente;
     font-size: 3em;
     color: #b45008;
 }
 
-footer{
+footer {
     width: 100%;
     height: 200px;
     background-color: #b45008;
@@ -107,42 +142,78 @@ footer{
     color: white;
 }
 
-article{
+article {
     width: 50%;
     padding: 1em;
+    float: left;
 }
 
-footer ul{
+footer ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
-footer{
+footer ul:first-of-type,
+footer p:first-child {
+    font-weight: bold;
+}
+
+footer {
     color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-.division{
+.division {
     width: 100%;
     padding: 1rem;
     display: flex;
     margin-bottom: 2px;
 }
 
-.division div{
+.division div {
     width: 50%;
 }
 
-.nosotros{
+.nosotros {
     background-color: #b45008;
 }
 
-.activo{
-    text-decoration: underline;
+.nosotros .grilla {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 200px 200px;
 }
 
+.grilla div {
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
+.grilla div:first-child {
+    background-position: -140px 0px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-image: url(../img/gym-01.JPG);
+}
 
+.grilla div:nth-child(2) {
+    background-image: url(../img/gym-02.JPG);
+
+}
+
+.grilla div:nth-child(3) {
+    background-image: url(../img/gym-03.JPG);
+
+}
+
+.activo {
+    text-decoration: underline;
+}
